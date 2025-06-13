@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ácidos Nucleicos - Aprenda Biologia</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #a1e077;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background-color: #dbe2ef;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #3f72af;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #112d4e;
+            font-size: 1.2em;
+        }
+        
+        .content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .popup-trigger {
+            background-color: #a8d8ea;
+            color: #112d4e;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .popup-trigger:hover {
+            background-color: #7fbcd2;
+            transform: translateY(-2px);
+        }
+        
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f9f7f7;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+            max-width: 500px;
+            width: 90%;
+            border: 3px solid #dbe2ef;
+        }
+        
+        .popup h3 {
+            color: #3f72af;
+            margin-top: 0;
+            border-bottom: 2px solid #dbe2ef;
+            padding-bottom: 10px;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #3f72af;
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 50;
+        }
+        
+        .dna-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            color: #112d4e;
+            font-size: 0.9em;
+        }
+        
+        .highlight {
+            background-color: #f8e1f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ácidos Nucleicos</h1>
+        <p class="subtitle">As moléculas da vida que armazenam e transmitem informação genética</p>
+    </header>
+    
+    <div class="content">
+        <img src="C:\Users\apoio\Downloads\acidonu.jpg" alt="Estrutura do DNA" class="dna-image">
+        
+        <h2>O que são Ácidos Nucleicos?</h2>
+        <p>Os ácidos nucleicos são macromoléculas essenciais para todos os organismos vivos. Eles são responsáveis pelo <span class="highlight">armazenamento, transmissão e expressão da informação genética</span>. Existem dois tipos principais de ácidos nucleicos:</p>
+        
+        <button class="popup-trigger" data-popup="dna">DNA</button>
+        <button class="popup-trigger" data-popup="rna">RNA</button>
+        
+        <h2>Estrutura dos Ácidos Nucleicos</h2>
+        <p>Todos os ácidos nucleicos são formados por unidades chamadas <button class="popup-trigger" data-popup="nucleotideos">nucleotídeos</button>. Cada nucleotídeo possui três componentes:</p>
+        
+        <button class="popup-trigger" data-popup="base">Base Nitrogenada</button>
+        <button class="popup-trigger" data-popup="açucar">Açúcar Pentose</button>
+        <button class="popup-trigger" data-popup="fosfato">Grupo Fosfato</button>
+        
+        <h2>Funções dos Ácidos Nucleicos</h2>
+        <p>Além de armazenar informação genética, os ácidos nucleicos desempenham diversas funções importantes:</p>
+        
+        <button class="popup-trigger" data-popup="replicacao">Replicação do DNA</button>
+        <button class="popup-trigger" data-popup="transcricao">Transcrição</button>
+        <button class="popup-trigger" data-popup="traducao">Tradução</button>
+        <button class="popup-trigger" data-popup="mutacoes">Mutações</button>
+    </div>
+    
+    <!-- Popups -->
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="popup" id="dna-popup">
+        <span class="close-btn">&times;</span>
+        <h3>DNA (Ácido Desoxirribonucleico)</h3>
+        <p>O DNA é a molécula que contém as instruções genéticas usadas no desenvolvimento e funcionamento de todos os organismos vivos conhecidos.</p>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Forma de dupla hélice</li>
+            <li>Contém as bases A, T, C, G</li>
+            <li>Açúcar desoxirribose</li>
+            <li>Armazena informação genética a longo prazo</li>
+        </ul>
+    </div>
+    
+    <div class="popup" id="rna-popup">
+        <span class="close-btn">&times;</span>
+        <h3>RNA (Ácido Ribonucleico)</h3>
+        <p>O RNA atua como intermediário na expressão da informação genética contida no DNA.</p>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Geralmente de fita simples</li>
+            <li>Contém as bases A, U, C, G</li>
+            <li>Açúcar ribose</li>
+            <li>Diversos tipos com funções diferentes (mRNA, tRNA, rRNA)</li>
+        </ul>
+    </div>
+    
+    <div class="popup" id="nucleotideos-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Nucleotídeos</h3>
+        <p>Os nucleotídeos são as unidades monoméricas que compõem os ácidos nucleicos.</p>
+        <p><strong>Estrutura:</strong></p>
+        <ol>
+            <li>Base nitrogenada (purina ou pirimidina)</li>
+            <li>Açúcar pentose (ribose ou desoxirribose)</li>
+            <li>Grupo fosfato</li>
+        </ol>
+        <p>Os nucleotídeos se ligam através de ligações fosfodiéster, formando longas cadeias.</p>
+    </div>
+    
+    <div class="popup" id="base-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Bases Nitrogenadas</h3>
+        <p>As bases nitrogenadas são compostos orgânicos cíclicos que contêm nitrogênio.</p>
+        <p><strong>Tipos:</strong></p>
+        <ul>
+            <li><strong>Purinas:</strong> Adenina (A) e Guanina (G) - estruturas com dois anéis</li>
+            <li><strong>Pirimidinas:</strong> Citosina (C), Timina (T) e Uracila (U) - estruturas com um anel</li>
+        </ul>
+        <p>No DNA, A pareia com T, e C pareia com G. No RNA, A pareia com U.</p>
+    </div>
+    
+    <div class="popup" id="açucar-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Açúcar Pentose</h3>
+        <p>O açúcar presente nos nucleotídeos pode ser de dois tipos:</p>
+        <ul>
+            <li><strong>Ribose:</strong> Presente no RNA, tem um grupo OH na posição 2'</li>
+            <li><strong>Desoxirribose:</strong> Presente no DNA, tem apenas um H na posição 2' (falta um oxigênio)</li>
+        </ul>
+        <p>O açúcar se liga à base nitrogenada formando um nucleosídeo, que ao ganhar fosfato vira nucleotídeo.</p>
+    </div>
+    
+    <div class="popup" id="fosfato-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Grupo Fosfato</h3>
+        <p>O grupo fosfato dá caráter ácido aos ácidos nucleicos.</p>
+        <p><strong>Funções:</strong></p>
+        <ul>
+            <li>Confere carga negativa à molécula</li>
+            <li>Participa das ligações fosfodiéster entre nucleotídeos</li>
+            <li>Fornece energia quando liberado (ATP é um nucleotídeo trifosfatado)</li>
+        </ul>
+    </div>
+    
+    <div class="popup" id="replicacao-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Replicação do DNA</h3>
+        <p>Processo pelo qual o DNA faz uma cópia de si mesmo antes da divisão celular.</p>
+        <p><strong>Características:</strong></p>
+        <ul>
+            <li>Semiconservativa (cada nova molécula tem uma fita velha e uma nova)</li>
+            <li>Enzimas envolvidas: DNA polimerase, helicase, primase, ligase</li>
+            <li>Ocorre no núcleo das células eucarióticas</li>
+            <li>Sentido 5'→3'</li>
+        </ul>
+    </div>
+    
+    <div class="popup" id="transcricao-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Transcrição</h3>
+        <p>Processo de síntese de RNA a partir de um molde de DNA.</p>
+        <p><strong>Etapas:</strong></p>
+        <ol>
+            <li>Iniciação: RNA polimerase se liga ao promotor</li>
+            <li>Alongamento: síntese da cadeia de RNA</li>
+            <li>Terminação: liberação do RNA e da enzima</li>
+        </ol>
+        <p>Produz mRNA, tRNA e rRNA, cada um com funções específicas.</p>
+    </div>
+    
+    <div class="popup" id="traducao-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Tradução</h3>
+        <p>Processo de síntese de proteínas a partir da informação no mRNA.</p>
+        <p><strong>Componentes:</strong></p>
+        <ul>
+            <li>Ribossomos (rRNA + proteínas)</li>
+            <li>mRNA (contém a informação)</li>
+            <li>tRNA (transporta aminoácidos)</li>
+            <li>Aminoácidos (unidades das proteínas)</li>
+        </ul>
+        <p>O código genético é lido em tripletos (códons).</p>
+    </div>
+    
+    <div class="popup" id="mutacoes-popup">
+        <span class="close-btn">&times;</span>
+        <h3>Mutações</h3>
+        <p>Alterações na sequência de nucleotídeos do DNA.</p>
+        <p><strong>Tipos:</strong></p>
+        <ul>
+            <li><strong>Pontuais:</strong> substituição, inserção ou deleção de bases</li>
+            <li><strong>Cromossômicas:</strong> alterações na estrutura ou número de cromossomos</li>
+            <li><strong>Silenciosas:</strong> não alteram o aminoácido</li>
+            <li><strong>Missense:</strong> alteram um aminoácido</li>
+            <li><strong>Nonsense:</strong> criam um códon de parada prematuro</li>
+        </ul>
+    </div>
+    
+    <footer>
+        <p>Biologia Interativa &copy; 2023 - Página educativa sobre Ácidos Nucleicos</p>
+    </footer>
+    
+    <script>
+        // JavaScript para controlar os popups
+        document.querySelectorAll('.popup-trigger').forEach(button => {
+            button.addEventListener('click', function() {
+                const popupId = this.getAttribute('data-popup') + '-popup';
+                document.getElementById(popupId).style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            });
+        });
+        
+        document.querySelectorAll('.close-btn').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.parentElement.style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            });
+        });
+        
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.querySelectorAll('.popup').forEach(popup => {
+                popup.style.display = 'none';
+            });
+            this.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
